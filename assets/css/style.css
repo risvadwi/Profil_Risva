@@ -1,0 +1,166 @@
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Floating Background Shapes (Variasi Bentuk Bulat Mengambang) */
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(90px);
+    z-index: -1;
+    animation: floatShape 12s ease-in-out infinite alternate;
+    opacity: 0.6; /* Supaya menyatu lembut dengan background */
+}
+
+.shape-1 {
+    width: 350px;
+    height: 350px;
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    top: 5%;
+    left: 10%;
+}
+
+.shape-2 {
+    width: 450px;
+    height: 450px;
+    background: linear-gradient(135deg, #7b2ff7, #f107a3);
+    bottom: 10%;
+    right: 5%;
+    animation-delay: -6s; /* Biar gerakannya selang-seling */
+}
+
+.shape-3 {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: rgba(0, 255, 200, 0.2);
+    filter: blur(100px);
+    top: 50%;
+    left: 40%;
+    z-index: -1;
+    animation: floatShape 8s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes floatShape {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-40px) scale(1.15); }
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../img/background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #ffffff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Floating Background Shapes */
+.shape {
+    position: absolute;
+    filter: blur(80px);
+    z-index: -1;
+    animation: floatShape 10s ease-in-out infinite alternate;
+}
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(0, 150, 255, 0.3);
+    top: 10%;
+    left: 10%;
+}
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(100, 50, 255, 0.2);
+    bottom: 10%;
+    right: 10%;
+    animation-delay: -5s;
+}
+
+@keyframes floatShape {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-30px) scale(1.1); }
+}
+
+/* Glassmorphism Card Style */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Navbar Liquid Glass & iPhone Hover Style */
+.navbar-glass {
+    background: rgba(10, 25, 50, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+.navbar-nav .nav-link {
+    color: #fff !important;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.08);
+    box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Section Spacing */
+section {
+    padding: 100px 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}
+
+/* Custom Progress Bar */
+.progress {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    height: 12px;
+}
+.progress-bar {
+    background: linear-gradient(90deg, #00c6ff, #0072ff);
+    border-radius: 10px;
+}
+
+/* Hobbies Floating Animation (Box mengambang, teks diam di tempat) */
+.hobby-box {
+    animation: floatHobby 4s ease-in-out infinite alternate;
+}
+.hobby-box:nth-child(even) {
+    animation-delay: -2s;
+}
+@keyframes floatHobby {
+    0% { transform: translateY(0px); }
+    100% { transform: translateY(-10px); }
+}
+
+/* Penyesuaian padding navbar mobile agar sejajar dengan card */
+@media (max-width: 768px) {
+    .navbar-glass .container-fluid {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
